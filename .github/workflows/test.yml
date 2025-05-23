@@ -14,10 +14,6 @@ jobs:
       matrix:
         node-version: [20.x]
 
-    defaults:
-      run:
-        working-directory: ./cours-efrei-api
-
     steps:
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
@@ -28,5 +24,7 @@ jobs:
         cache-dependency-path: cours-efrei-api/package-lock.json
     - name: Install dependencies
       run: npm install
+      working-directory: ./cours-efrei-api
     - name: Run tests
       run: npm test
+      working-directory: ./cours-efrei-api
